@@ -56,7 +56,9 @@ $(document).ready(function(){
 		
 	});
 
-	$(".new").on("click", newGame());
+	$("nav .new").on("click", function() {
+		newGame();
+	});
 
 
 
