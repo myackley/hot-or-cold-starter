@@ -11,14 +11,12 @@ $(document).ready(function(){
 		return generatedNum;
 	}
 	var newGame = function() {
-		generate();
-		clearUI();
+		generate(); // generate number
+		clearUI(); // clear counter and listed guesses
 	}
 	var clearUI = function() {
-		// |-- reset variables
-		var guessCnt = $("#count").text("0");
-		// |-- clear ui
-		$("#guessList li").remove();
+		$("#count").text("0"); // reset counter
+		$("#guessList li").remove(); // clear ui
 		console.log("cleared");
 	}
 
@@ -38,8 +36,8 @@ $(document).ready(function(){
 		event.preventDefault();
 		//init variables
 		userguess = $("#userGuess").val(); //guess
-		guessCnt = $("#count").text(); // guess counter
 		pastguesses = $("#guessList").children("li");
+		guessCnt = $("#guessList").children("li").length+1; // guess counter
 
 		//	see if guessed alread or no guesses exist
 		checkGuesses(pastguesses,userguess);
@@ -53,7 +51,8 @@ $(document).ready(function(){
 		// |-- if/else for cold, warm, warmer, hot
 
 		// push to html
-		displayGuess(userguess);
+		displayGuess(userguess); // ... to guess list
+		$("#count").text(guessCnt); // ... to counter
 		
 	});
 
