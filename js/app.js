@@ -43,10 +43,17 @@ $(document).ready(function(){
 		checkGuesses(pastguesses,userguess);
 
 		// |-- validate guess
-		//      |-- already guessed? => checkGuesses==false
-
-		//      |-- string?
-		//      |-- decimal?
+		if (checkGuesses() == false) {
+			$("#feedback").text("You entered that number previously"); // already guessed?
+		} else if (userguess%1 != 0) {
+			$("#feedback").text("You are not allowed to enter decimals"); // decimal?
+		} else if ($.type(userguess) === "string") {
+			$("#feedback").text("You are not allowed to enter text"); // string?
+		} else if (userguess < 1 || userguess > 100) {
+			$("#feedback").text("Please enter a number between 1 and 100"); // between 1 and 100?
+		} else {
+			return false;
+		}
 
 		// |-- if/else for cold, warm, warmer, hot
 
