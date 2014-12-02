@@ -32,8 +32,7 @@ $(document).ready(function(){
 		guessCnt++;
 
 		// store guess
-		userguess = $("#userGuess").val(); //guess
-
+		userguess = parseInt($("#userGuess").val(),10); //guess
 
 		// validate guess
 		if (userguess%1 != 0) {
